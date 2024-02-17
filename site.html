@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<title>Владивостокская резня</title>
+
+<style>
+	body{
+		background-color: #000000;  /*Цвет фона веб-страницы*/ 
+		
+	}
+	h1{
+		background-color: RGB(256, 256, 256); /*Цвет фона под заголовком */
+		color: white;
+	}
+	p {
+		background-color: maroon; /* color of background under the text of paragraph */
+		color: white; /* text color*/
+	}
+	@font-face {
+		font-family: Onerock400;
+		src: url("C:/Users/snake/Desktop/Site/Fonts/Onerock400.otf") format("opentype");
+		}
+
+	@font-face {
+		font-family: MaskdownOne;
+		src: url("C:/Users/snake/Desktop/Site/Fonts/MaskdownOne.otf") format("opentype");
+		}
+
+	@font-face {
+		font-family: AberrationDemo;
+		src: url("C:/Users/snake/Desktop/Site/Fonts/AberrationDemo.ttf") format("opentype");
+		}
+	
+	
+</style>
+
+<!-- Image Rotation style !-->
+<style> 
+        .rotate-image {
+           
+          /* Adjust the angle as needed */
+           
+            transform: rotate(180deg);
+            margin-left: 15px;
+			margin-top: 10px;
+        }
+		.rotate-image90 {
+           
+          /* Adjust the angle as needed */
+            transform: rotate(90deg);
+
+        }
+/* Button below the picture */
+		.button{
+			background-color: rgba(0,0,0,0);
+			border: none;
+			color: white;
+			padding: 15 px 32 px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+		
+		#image1 {
+			display:none
+		}
+</style>
+
+<head>
+	<center>
+		<font color="#CC0000" size=7 face="MaskdownOne">V</font> 
+		<font color="#CC0000" size=6 face="AberrationDemo"> <I>ladivostok</I> </font>
+	</center>
+</head>
+
+<body>
+	<center>
+		<img draggable="false" src="C:/Users/snake/Desktop/Site/Img/smithnwesson500_ph.png"
+		title=""
+		width="400"
+		height="400"/>
+	</center>
+</body>
+
+<!-- <hr style="height:2px;border-width:0;color:gray;background-color:gray"> !-->
+
+<footer>
+	
+	
+	
+	<div>
+		<center>
+			<button class="button" onclick="show()" id="btn1">
+			
+			<!-- Implemented the same script in the "show" function script below 
+			<script> 
+				var snd = new Audio("C:/Users/snake/Desktop/Site/audio/button1.wav"); 
+			</script>
+			-->
+		
+				<font color="CC0000" face="AberrationDemo"> c h a r a c t e r s </font> 	
+			</button>
+		</center>
+	</div>
+	
+	<style>
+		.imageone:
+			width:400px;
+			height:400px;
+			position:fixed;
+	</style>
+	
+	<div class="imageone" id="image1">
+		<center>
+			<img draggable="false" class="rotate-image" src="C:/Users/snake/Desktop/Site/Img/smithnwesson500_ph.png" 
+			title=""
+			width="400"
+			height="400"/>
+		</center>
+	</div>
+	
+	<style>
+		.block2{
+			margin-top: 0px;
+			text-align: center;
+			display: none;
+		}
+		
+	</style>
+	
+	<center>
+		<div id="blocktwo" class="block2">
+			<font color="#CC0000" size=7 face="MaskdownOne">S</font> 
+			<font color="#CC0000" size=6 face="AberrationDemo"> <I>laughter</I> </font>
+		</div>
+	</center>
+	
+	<style>
+		.emptyblock{
+			height:540px;
+			width:1px;
+			display: block;
+		}
+	</style>
+	<div class="emptyblock" id="empty1">
+	</div>
+
+	<audio id="audio1" src="C:/Users/snake/Desktop/Site/audio/revolver-dryfire_1.wav">
+	<audio id="audio2" src="C:/Users/snake/Desktop/Site/audio/revolver-dryfire_3.wav">
+	<audio id="audio3" src="C:/Users/snake/Desktop/Site/audio/revolver-fire.wav">
+	
+	<script>
+	
+	</script>
+	
+	<script>
+		window.randint = 0;
+		var Clickcounter=0;
+		var button1 = document.getElementById("btn1");
+		var audio1 = document.getElementById("audio1")
+		button1.onmouseup = function(){
+				// finding random number to randomly initiate third sfx of gunshot 
+				function randomInteger(min, max) {
+				// случайное число от min до (max+1)
+				let rand = min + Math.random() * (max + 1 - min);
+				return Math.floor(rand);
+				}
+				window.randint = ( randomInteger(1, 20) );
+				Clickcounter++;
+				
+				if(Clickcounter%window.randint==0 && Clickcounter%2==0){
+					audio1.currentTime=0
+					audio2.currentTime=0
+					audio3.currentTime = 0
+					audio3.play();
+				}
+				if(Clickcounter%2!=0 || Clickcounter==1){
+					audio1.currentTime = 0
+					audio1.play();
+					document.getElementById("image1").style.display="block";
+					document.getElementById("blocktwo").style.display="block";
+					document.getElementById("empty1").style.display="none";
+				};
+				if(Clickcounter%2==0){
+					audio2.currentTime = 0
+					audio2.play();
+					document.getElementById("image1").style.display="none";
+					document.getElementById("blocktwo").style.display="none";
+					document.getElementById("empty1").style.display="block";
+				
+				};
+				
+			}
+
+	</script>
+</footer>
+</html>
